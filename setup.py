@@ -8,7 +8,7 @@ setup(
     long_description_content_type='text/markdown',
     author='Muafira',
     author_email='muafirathasnikt@gmail.com',
-    url='https://github.com/yourusername/your_project',
+    url='https://github.com/MuafiraThasni/LayoutAwareRAG',
     packages=find_packages(),
     install_requires=[
         # List your project dependencies here
