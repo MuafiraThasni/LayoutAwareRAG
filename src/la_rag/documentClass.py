@@ -11,8 +11,8 @@ from sentence_transformers import SentenceTransformer
 import sys
 # sys.path.append(r'D:\Muafira\Desktop\Complete RFP Analyser Pipeline\AI-DOC-PARSER') # path to the AI-DOC-PARSER
 # sys.path.append(r'D:\Muafira\Desktop\Complete RFP Analyser Pipeline\RFP-PREPROCESSOR') # path to the RFP-PREPROCESSOR
-from layout_parser import docParser
-from preprocessor import preProcess
+from .layout_parser import docParser
+from .preprocessor import preProcess
 import torch
 # from transformers import AutoTokenizer, AutoModel
 cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
