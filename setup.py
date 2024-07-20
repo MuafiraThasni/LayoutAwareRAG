@@ -2,14 +2,15 @@ from setuptools import setup, find_packages
 
 setup(
     name='la-rag',
-    version='0.1.1',
+    version='0.1.2',
     description='Layout Aware RAG',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='Muafira',
     author_email='muafirathasnikt@gmail.com',
     url='https://github.com/MuafiraThasni/LayoutAwareRAG',
-    packages=find_packages(),
+    packages=find_packages(where='src'),
+    package_dir={'': 'src'},
     install_requires=[
         # List your project dependencies here
         'nltk',

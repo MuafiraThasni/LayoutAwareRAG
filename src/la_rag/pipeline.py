@@ -9,8 +9,8 @@ import numpy as np
 from sentence_transformers import CrossEncoder, util
 from sentence_transformers import SentenceTransformer
 import sys
-from layout_parser import docParser
-from preprocessor import preProcess
+from .layout_parser import docParser
+from .preprocessor import preProcess
 # Encoders
 import torch
 cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
