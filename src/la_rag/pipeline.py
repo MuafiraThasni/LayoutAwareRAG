@@ -44,8 +44,8 @@ def biencodeDf2(df):
     return  dataset, biembeddings
 
 
-# B.3 Semantic search
-def search_data2(dataframe,biembeddings, userQuery):
+# B.3 Retriever using semantic search
+def retriever(dataframe,biembeddings, userQuery):
     
     if dataframe is not None and userQuery is not None:
         df = dataframe.copy()
@@ -89,6 +89,21 @@ def findAnswer(context, query):
     # answer = response['choices'][0]['text']
     answer = "No Answer Found! /n Reason: Technical Issue from OpenAI model"
     return answer
+
+def callOpenAI(context, query):
+    # prompt_template = f"You are an extractive qa model gives answer to given query. You are given a query and a set of context.You have to provide specific answer from the given context, give your answer based only on the context. DON'T generate an answer that is NOT given in the provided context.If you don't find the answer within the context provided say 'No answers found!' .Use bullet points if you have to make a list, only if necessary. Give source of truth for each extracted information in bracket as number of item in context.QUERY: Give the {query}CONTEXTS:========={context}========="
+    # response = openai.Completion.create(
+    #         prompt=prompt_template,
+    #         temperature=0,
+    #         max_tokens=300,
+    #         top_p=1,
+    #         frequency_penalty=0,
+    #         presence_penalty=0,
+    #         model=COMPLETIONS_MODEL
+    #     )
+    # answer = response['choices'][0]['text']
+    # answer = "No Answer Found! /n Reason: Technical Issue from OpenAI model"
+    return answer
 #_________________________________________________________________________
 class SearchDocumentMultiple2:
     def __init__(self, doc_paths, doc_names,search_query):
@@ -119,7 +134,7 @@ class SearchDocumentMultiple2:
     def searchResult(self):
 #         print(len(self.bi_encoding))
 #         print(len(self.embeddings))
-        return search_data2(self.bi_encoding,self.embeddings,self.search_query)
+        return retriever(self.bi_encoding,self.embeddings,self.search_query)
     
 # C.2  Extract the Inofrmation 
 def extractInfo(doc_paths, doc_names,query):
