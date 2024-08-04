@@ -105,7 +105,7 @@ def callOpenAI(context, query):
     # answer = "No Answer Found! /n Reason: Technical Issue from OpenAI model"
     return answer
 #_________________________________________________________________________
-class SearchDocumentMultiple2:
+class SearchDocuments:
     def __init__(self, doc_paths, doc_names,search_query):
         self.df = None
         self.pre_processed = None
@@ -117,11 +117,9 @@ class SearchDocumentMultiple2:
     def extract(self):
         dfs = []
         for index,doc in enumerate(self.documents):
-            
             temp = docParser(doc)
             temp['Document'] = [self.names[index] for i in range(len(temp))]
             dfs.append(temp)
-            print(f"{doc} --- extracted!")
         self.df = pd.concat(dfs)
         return self.df
     def preprocess(self):
@@ -139,8 +137,8 @@ class SearchDocumentMultiple2:
 # C.2  Extract the Inofrmation 
 def extractInfo(doc_paths, doc_names,query):
     # initialise the search model with the document
-    searchmodel = SearchDocumentMultiple2(doc_paths,doc_names,query)
-    # preprocess the rfp
+    searchmodel = SearchDocuments(doc_paths,doc_names,query)
+    # preprocess the documents
     extracted = searchmodel. extract()
     preprocessed = searchmodel.preprocess()
     # retrieval for the given query
