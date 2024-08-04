@@ -1,7 +1,4 @@
 #%%
-# import sys
-# sys.path.append(r"C:\Users\User\Desktop\LayoutAwareRAG\src\la_rag")
-# import pymupdf
 from la_rag.pipeline import extractInfo as model
 
 #%%
@@ -10,3 +7,4 @@ name = "ml book"
 
 result = model([path],[name],"experience")
 # %%
+from la_rag.piepline import 
